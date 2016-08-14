@@ -1,30 +1,31 @@
 {
-  "name": "angular2-seed",
+  "name": "eurobuilding",
   "version": "1.0.0",
-  "description": "A simple starter Angular2 project",
+  "description": "Control de Asistencia",
   "scripts": {
     "typings-install": "typings install",
     "postinstall": "npm run typings-install",
-    "build": "webpack --inline --colors --progress --display-error-details --display-cached",
+    "rimraf": "rimraf",
+    "clean": "rimraf -- dist",
+    "build": "npm run clean && webpack --inline --colors --progress --display-error-details --display-cached",
     "watch": "npm run build -- --watch",
     "server": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 3000  --content-base src",
     "start": "npm run server"
   },
-  "contributors": [
-    "Rob Wormald <robwormald@gmail.com>",
-    "PatrickJS <github@gdi2290.com>"
-  ],
   "license": "MIT",
   "devDependencies": {
     "angular2-template-loader": "^0.4.0",
     "awesome-typescript-loader": "^1.1.1",
     "css-loader": "^0.23.1",
+    "html-webpack-plugin": "^2.22.0",
     "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.4",
+    "sass-loader": "^4.0.0",
     "to-string-loader": "^1.1.4",
     "typings": "~1.0.3",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
-    "webpack-merge": "^0.8.4"
+    "webpack-merge": "^0.14.1"
   },
   "dependencies": {
     "@angular/common": "2.0.0-rc.5",
@@ -42,6 +43,7 @@
     "lodash": "^4.15.0",
     "moment": "^2.14.1",
     "ng2-bootstrap": "^1.0.24",
+    "rimraf": "^2.5.4",
     "rxjs": "5.0.0-beta.6",
     "socket.io-client": "^1.4.8",
     "typescript": "^1.9.0-dev",

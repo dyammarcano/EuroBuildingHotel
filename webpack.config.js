@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
+const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
@@ -15,6 +16,7 @@ const webpackConfig = {
     path: './dist',
   },
   plugins: [
+    new ForkCheckerPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(true),
     new HtmlWebpackPlugin({
@@ -55,7 +57,19 @@ const webpackConfig = {
       {
         test: /\.html$/,
         loader: 'raw-loader'
-      }
+      },
+      {
+        test: /\.woff(2)?(\?v=.+)?$/,
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=.+)?$/,
+        loader: 'file-loader'
+      },
+      {
+        test: /bootstrap\/dist\/js\/umd\//,
+        loader: 'imports?jQuery=jquery'
+      },
     ]
   }
 };

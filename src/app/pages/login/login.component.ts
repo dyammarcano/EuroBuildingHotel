@@ -15,6 +15,11 @@ export class Login {
   public password:AbstractControl;
   public submitted:boolean = false;
 
+  login_title = "control de asistencia eurobuilding";
+  button_title = "ingresar";
+  input_title_password = "contraseña";
+  input_title_email = "correo";
+
   constructor(fb:FormBuilder) {
     this.form = fb.group({
       'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],

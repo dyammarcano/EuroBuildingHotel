@@ -1,26 +1,80 @@
-import { NgModule } from '@angular/core'
-import { RouterModule } from "@angular/router";
-import { rootRouterConfig } from "./app.routes";
-import { AppComponent } from "./app.component";
-import { Github } from "./github/shared/github";
-import { FormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
-import { HttpModule } from "@angular/http";
-import { About } from './about/about';
-import { Home } from './home/home';
-import { RepoBrowser } from './github/repo-browser/repo-browser';
-import { RepoList } from './github/repo-list/repo-list';
-import { RepoDetail } from './github/repo-detail/repo-detail';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { BaThemeConfigProvider, BaThemeConfig } from "./theme";
-import { BaThemeRun } from "./theme/directives";
+import { NgModule, ApplicationRef } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
+/*
+ * Platform and Environment providers/directives/pipes
+ */
+import { ENV_PROVIDERS } from './environment';
+import { routing } from './app.routing';
+
+// App is our top level component
+import { App } from './app.component';
+import { AppState } from './app.service';
+import { GlobalState } from './global.state';
+import { NgaModule } from './theme/nga.module';
+import { PagesModule } from './pages/pages.module';
+
+// Application wide providers
+const APP_PROVIDERS = [
+  AppState,
+  GlobalState
+];
+
+/**
+ * `AppModule` is the main entry point into Angular2's bootstraping process
+ */
 @NgModule({
-  declarations: [AppComponent, About, RepoBrowser, RepoList, RepoDetail, Home],
-  imports : [BaThemeRun, BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig)],
-  providers : [BaThemeConfigProvider, BaThemeConfig, Github, {provide: LocationStrategy, useClass: HashLocationStrategy}],
-  bootstrap : [AppComponent]
+  bootstrap: [App],
+  declarations: [
+    App
+  ],
+  imports: [ // import Angular's modules
+    BrowserModule,
+    HttpModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgaModule,
+    PagesModule,
+    routing
+  ],
+  providers: [ // expose our Services and Providers into Angular's dependency injection
+    ENV_PROVIDERS,
+    APP_PROVIDERS
+  ]
 })
+
 export class AppModule {
 
+  constructor(public appRef: ApplicationRef, public appState: AppState) {
+
+  }
+
+  hmrOnInit(store) {
+    if (!store || !store.state) return;
+    console.log('HMR store', store);
+    this.appState._state = store.state;
+    this.appRef.tick();
+    delete store.state;
+  }
+
+  hmrOnDestroy(store) {
+    const cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
+    // recreate elements
+    const state = this.appState._state;
+    store.state = state;
+    store.disposeOldHosts = createNewHosts(cmpLocation);
+    // remove styles
+    removeNgStyles();
+  }
+
+  hmrAfterDestroy(store) {
+    // display new elements
+    store.disposeOldHosts();
+    delete store.disposeOldHosts;
+  }
 }

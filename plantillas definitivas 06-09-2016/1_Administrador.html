@@ -1,0 +1,158 @@
+<div class="row">
+<style type="text/css">
+.row .col-md-12 ba-card label {
+	font-size: 16px;
+}
+</style>
+<div class="row">
+  <div class="col-md-12">
+    <ba-card title="" baCardClass="with-scroll">
+<div class="row form-inline">
+<img ng-reflect-src="assets/img/theme/icon/kameleon/Boss-3.svg" src="assets/img/theme/icon/kameleon/Boss-3.svg">
+<label><h1>Administrador:</h1></label>	 
+       <div class="form-group has-feedback col-md-3 pull-right">
+  <label class="control-label" for="inputGroupSuccess1">Repetir Contraseña</label>
+  <div class="input-group">
+    <span class="input-group-addon addon-left"><i class="icon ion-locked"></i></span>
+    <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+  </div>
+</div>
+<div class="form-group has-feedback col-md-3 pull-right">
+  <label class="control-label" for="inputGroupSuccess1">Contraseña</label>
+  <div class="input-group">
+    <span class="input-group-addon addon-left"><i class="icon ion-locked"></i></span>
+    <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+  </div>
+</div>
+</div>
+
+  <div class="col-sm-4 col-xs-6 pull-right">
+    <div class="btn-group" dropdown>
+      <button type="button" class="btn btn-success">SELECCION</button>
+      <button type="button" class="btn btn-success" dropdownToggle addToggleClass="true">
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu" dropdownMenu>
+        <li class="dropdown-item"><a href="#">Gerente</a></li>
+        <li class="dropdown-item"><a href="#">Departamento de RR-HH</a></li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><a href="#">Supervisor</a></li>
+      </ul>
+    </div>
+  </div>
+  
+    </ba-card>
+  </div>
+</div>
+  <div class="col-md-6">
+    <ba-card title="DATOS PERSONALES" bacardclass="with-scroll">
+      <div class="form-group">
+        <label>PRIMER NOMBRE:</label>
+        <input type="text" value="{{first_name}}" placeholder="Primer Nombre" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label>SEGUNDO NOMBRE:</label>
+        <input type="text" value="{{second_name}}" placeholder="Segundo Nombre" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label>PRIMER APELLIDO:</label>
+        <input type="text" value="{{firt_surname}}" placeholder="Primer Apellido" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label>SEGUNDO APELLIDO:</label>
+        <input type="text" value="{{firt_surname}}" placeholder="Segundo Apellido" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label>CEDULA DE IDENTIDAD:</label>
+        <input type="text" value="{{identification}}" placeholder="Cédula de Identidad" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label>ESTADO CIVIL:</label>
+        <input type="text" value="{{civil_status}}" placeholder="Estado Civil" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label>FECHA DE NACIMIENTO:</label>
+        <input type="text" value="{{birth_date}}" placeholder="Fecha de Nacimiento" class="form-control"/>
+      </div>
+      <label>SEXO:</label>
+      <div class="checkbox-demo-row">
+        <div class="input-demo checkbox-demo row">
+          <ba-multi-checkbox></ba-multi-checkbox>
+        </div>
+        <div class="input-demo radio-demo row">
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input id="inlineRadio1" type="radio" name="inlineRadioOptions" value="male"/><span>MASCULINO</span>
+            </label>
+          </div>
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input id="inlineRadio2" type="radio" name="inlineRadioOptions" value="female"/><span>FEMENINO</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>TELEFONO:</label>
+        <input type="text" value="{{phone}}" placeholder="Teléfono" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label>CELULAR:</label>
+        <input type="text" value="{{phone}}" placeholder="Teléfono" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label>E-MAIL:</label>
+        <input type="text" value="{{phone}}" placeholder="e-mail" class="form-control"/>
+      </div>
+    </ba-card>
+  </div>
+  <div class="col-md-6">
+    <ba-card title="DATOS EMPRESARIALES" bacardclass="with-scroll">
+      <div class="form-group">
+        <label>NUMERO DE EMPLEADO:</label>
+        <input type="text" value="{{employee_numbe}}" placeholder="Número de Empleado" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label>DEPARTAMENTO:</label>
+        <input type="text" value="{{department}}" placeholder="Departamento" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label>CARGO:</label>
+        <input type="text" value="{{title}}" placeholder="Cargo" class="form-control"/>
+      </div>
+      <div class="form-group">
+        <label>FECHA DE INGRESO:</label>
+        <input type="text" value="{{works_from}}" placeholder="Fecha de Ingreso" class="form-control"/>
+      </div>
+      <label>ESTATUS:</label>
+      <div class="checkbox-demo-row">
+        <div class="input-demo checkbox-demo row">
+          <ba-multi-checkbox></ba-multi-checkbox>
+        </div>
+        <div class="input-demo radio-demo row">
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input id="inlineRadio1" type="radio" name="inlineRadioOptions" value="active"/><span>ACTIVO</span>
+            </label>
+          </div>
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input id="inlineRadio2" type="radio" name="inlineRadioOptions" value="suspend"/><span>SUSPENDIDO</span>
+            </label>
+          </div>
+          <div class="col-md-4">
+            <label class="radio-inline custom-radio nowrap">
+              <input id="inlineRadio3" type="radio" name="inlineRadioOptions" value="vacations"/><span>VACACIONES</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </ba-card>
+  </div>
+   <div class="col-md-6">
+    <ba-card title="GUARDAR DATOS" baCardClass="with-scroll">
+    <button type="button" class="btn btn-success btn-mm">GUARDAR</button>
+  </ba-card>
+  </div>
+</div>
+

@@ -7,7 +7,7 @@ export const PAGES_MENU = [
         data: {
           menu: {
             title: 'Informacion',
-            icon: 'ion-ios-speedometer',
+            icon: 'ion-levels',
             selected: false,
             expanded: false,
             order: 0
@@ -19,7 +19,7 @@ export const PAGES_MENU = [
         data: {
           menu: {
             title: 'Empleados',
-            icon: 'ion-ios-people',
+            icon: 'ion-person-stalker',
             selected: false,
             expanded: false,
             order: 200,
@@ -31,7 +31,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'Listar Todos',
-                icon: 'ion-ios-list',
+                icon: 'ion-navicon-round',
               }
             }
           },
@@ -40,7 +40,7 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'Agregar',
-                icon: 'ion-ios-personadd',
+                icon: 'ion-person-add',
               }
             },
             children: [
@@ -108,28 +108,28 @@ export const PAGES_MENU = [
       //     }
       //   ]
       // },
-      {
-        path: 'charts',
-        data: {
-          menu: {
-            title: 'Charts',
-            icon: 'ion-stats-bars',
-            selected: false,
-            expanded: false,
-            order: 200,
-          }
-        },
-        children: [
-          {
-            path: 'chartist-js',
-            data: {
-              menu: {
-                title: 'Chartist.Js',
-              }
-            }
-          }
-        ]
-      },
+      // {
+      //   path: 'charts',
+      //   data: {
+      //     menu: {
+      //       title: 'Charts',
+      //       icon: 'ion-stats-bars',
+      //       selected: false,
+      //       expanded: false,
+      //       order: 200,
+      //     }
+      //   },
+      //   children: [
+      //     {
+      //       path: 'chartist-js',
+      //       data: {
+      //         menu: {
+      //           title: 'Chartist.Js',
+      //         }
+      //       }
+      //     }
+      //   ]
+      // },
       {
         path: 'ui',
         data: {

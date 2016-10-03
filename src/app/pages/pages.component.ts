@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { StartupService } from '../shared';
 
 @Component({
   selector: 'pages',
@@ -30,7 +31,18 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class Pages {
 
-  constructor() {}
+  constructor(private startupService:StartupService) {
+    this.startupService.on('echo').subscribe((data) => {
+      console.log(`recive echo: ${data}`);
+    });
+
+    setInterval(() => {
+      let random = Math.random().toString(36).substring(2, 15);
+      console.log(`send echo: ${random}`);
+      this.startupService.emit('echo', random);
+      //this.startupService.emit({ authenticate: { email:'dyam.marcano@gmail.com', password:'0111100101101111' } });
+    }, 5000);
+  }
 
   ngOnInit() {
   }

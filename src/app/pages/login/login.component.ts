@@ -1,5 +1,7 @@
-import {Component, ViewEncapsulation} from '@angular/core';
-import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { StartupService } from '../../shared';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'login',
@@ -9,12 +11,22 @@ import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/form
 })
 export class Login {
 
-  public form:FormGroup;
-  public email:AbstractControl;
-  public password:AbstractControl;
-  public submitted:boolean = false;
+  public form: FormGroup;
+  public email: AbstractControl;
+  public password: AbstractControl;
+  public submitted: boolean = false;
 
-  constructor(fb:FormBuilder) {
+  constructor(public fb: FormBuilder,
+    public startupService: StartupService
+  ) {
+
+    this.startupService.on('authenticate').subscribe((data) => {
+      console.log(`recive authenticate: ${JSON.stringify(data)}`);
+
+      this.myAlert(data);
+
+    });
+
     this.form = fb.group({
       'email': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
@@ -24,11 +36,22 @@ export class Login {
     this.password = this.form.controls['password'];
   }
 
-  public onSubmit(values:Object):void {
+  myAlert = (data) => {
+
+    if (!_.isUndefined(data.error)) {
+      alert(data.error);
+    } else if (!_.isUndefined(data.status)) {
+      alert(data.status);
+    }
+  };
+
+  public onSubmit(values: Object): void {
     this.submitted = true;
     if (this.form.valid) {
-      // your code goes here
-      // console.log(values);
+
+      console.log(this.form.value);
+
+      this.startupService.emit('authenticate', this.form.value);
     }
   }
 }

@@ -1,10 +1,9 @@
 import './app.loader.ts';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { GlobalState } from './global.state';
-import { BaThemeConfigProvider, BaThemeConfig } from './theme';
-import { BaThemeRun } from './theme/directives';
 import { BaImageLoaderService, BaThemePreloader, BaThemeSpinner } from './theme/services';
 import { layoutPaths } from './theme/theme.constants';
+import { TimeService, StartupService } from './shared';
 
 /*
  * App Component
@@ -12,9 +11,6 @@ import { layoutPaths } from './theme/theme.constants';
  */
 @Component({
   selector: 'app',
-  pipes: [],
-  directives: [BaThemeRun],
-  providers: [BaThemeConfigProvider, BaThemeConfig, BaImageLoaderService, BaThemeSpinner],
   encapsulation: ViewEncapsulation.None,
   styles: [require('normalize.css'), require('./app.scss')],
   template: `
@@ -30,13 +26,38 @@ export class App {
 
   constructor(private _state: GlobalState,
               private _imageLoader: BaImageLoaderService,
-              private _spinner: BaThemeSpinner) {
-    
+              private _spinner: BaThemeSpinner,
+              private timeService: TimeService,
+              private startupService: StartupService
+  ) {
+
+    this.startupService.on('message').subscribe((data) => {
+      console.log(data);
+    });
+
+    //this.startupService.connectToAPI();
+
+    this.timeService
+      .get()
+      .subscribe((data) => {
+        //console.log(`data from service: ${ data }`);
+      },
+      error => console.log(error)
+    );
+
     this._loadImages();
 
     this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
       this.isMenuCollapsed = isCollapsed;
     });
+  }
+
+  ngOninit() {
+    console.log('App component: ngOninit');
+  }
+
+  ngOnDestroy() {
+    console.log('App component: ngOnDestroy');
   }
 
   public ngAfterViewInit(): void {

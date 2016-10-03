@@ -6,8 +6,8 @@ export const PAGES_MENU = [
         path: 'dashboard',
         data: {
           menu: {
-            title: 'Informacion',
-            icon: 'ion-levels',
+            title: 'Dashboard',
+            icon: 'ion-android-home',
             selected: false,
             expanded: false,
             order: 0
@@ -15,11 +15,55 @@ export const PAGES_MENU = [
         }
       },
       {
-        path: 'accounts',
+        path: 'editors',
         data: {
           menu: {
-            title: 'Empleados',
-            icon: 'ion-person-stalker',
+            title: 'Editors',
+            icon: 'ion-edit',
+            selected: false,
+            expanded: false,
+            order: 100,
+          }
+        },
+        children: [
+          {
+            path: 'ckeditor',
+            data: {
+              menu: {
+                title: 'CKEditor',
+              }
+            }
+          }
+        ]
+      },
+      //{
+      //  path: 'components',
+      //  data: {
+      //    menu: {
+      //      title: 'Components',
+      //      icon: 'ion-gear-a',
+      //      selected: false,
+      //      expanded: false,
+      //      order: 250,
+      //    }
+      //  },
+      //  children: [
+      //    {
+      //      path: 'treeview',
+      //      data: {
+      //        menu: {
+      //          title: 'Tree View',
+      //        }
+      //      }
+      //    }
+      //  ]
+      //},
+      {
+        path: 'charts',
+        data: {
+          menu: {
+            title: 'Charts',
+            icon: 'ion-stats-bars',
             selected: false,
             expanded: false,
             order: 200,
@@ -27,109 +71,15 @@ export const PAGES_MENU = [
         },
         children: [
           {
-            path: 'list',
+            path: 'chartist-js',
             data: {
               menu: {
-                title: 'Listar Todos',
-                icon: 'ion-navicon-round',
+                title: 'Chartist.Js',
               }
             }
-          },
-          {
-            path: 'add',
-            data: {
-              menu: {
-                title: 'Agregar',
-                icon: 'ion-person-add',
-              }
-            },
-            children: [
-              {
-                path: 'admin',
-                data: {
-                  menu: {
-                    title: 'Agregar Gerente',
-                  }
-                }
-              },
-              {
-                path: 'account',
-                data: {
-                  menu: {
-                    title: 'Agregar Personal',
-                  }
-                }
-              }
-            ]
           }
         ]
       },
-      // {
-      //   path: 'editors',
-      //   data: {
-      //     menu: {
-      //       title: 'Editors',
-      //       icon: 'ion-edit',
-      //       selected: false,
-      //       expanded: false,
-      //       order: 100,
-      //     }
-      //   },
-      //   children: [
-      //     {
-      //       path: 'ckeditor',
-      //       data: {
-      //         menu: {
-      //           title: 'CKEditor',
-      //         }
-      //       }
-      //     }
-      //   ]
-      // },
-      // {
-      //   path: 'components',
-      //   data: {
-      //     menu: {
-      //       title: 'Components',
-      //       icon: 'ion-gear-a',
-      //       selected: false,
-      //       expanded: false,
-      //       order: 250,
-      //     }
-      //   },
-      //   children: [
-      //     {
-      //       path: 'treeview',
-      //       data: {
-      //         menu: {
-      //           title: 'Tree View',
-      //         }
-      //       }
-      //     }
-      //   ]
-      // },
-      // {
-      //   path: 'charts',
-      //   data: {
-      //     menu: {
-      //       title: 'Charts',
-      //       icon: 'ion-stats-bars',
-      //       selected: false,
-      //       expanded: false,
-      //       order: 200,
-      //     }
-      //   },
-      //   children: [
-      //     {
-      //       path: 'chartist-js',
-      //       data: {
-      //         menu: {
-      //           title: 'Chartist.Js',
-      //         }
-      //       }
-      //     }
-      //   ]
-      // },
       {
         path: 'ui',
         data: {
@@ -314,61 +264,61 @@ export const PAGES_MENU = [
           }
         ]
       },
-      // {
-      //   path: '',
-      //   data: {
-      //     menu: {
-      //       title: 'Menu Level 1',
-      //       icon: 'ion-ios-more',
-      //       selected: false,
-      //       expanded: false,
-      //       order: 700,
-      //     }
-      //   },
-      //   children: [
-      //     {
-      //       path: '',
-      //       data: {
-      //         menu: {
-      //           title: 'Menu Level 1.1',
-      //           url: '#'
-      //         }
-      //       }
-      //     },
-      //     {
-      //       path: '',
-      //       data: {
-      //         menu: {
-      //           title: 'Menu Level 1.2',
-      //           url: '#'
-      //         }
-      //       },
-      //       children: [
-      //         {
-      //           path: '',
-      //           data: {
-      //             menu: {
-      //               title: 'Menu Level 1.2.1',
-      //               url: '#'
-      //             }
-      //           }
-      //         }
-      //       ]
-      //     }
-      //   ]
-      // },
-      // {
-      //   path: '',
-      //   data: {
-      //     menu: {
-      //       title: 'External Link',
-      //       url: 'http://akveo.com',
-      //       icon: 'ion-android-exit',
-      //       order: 800,
-      //       target: '_blank'
-      //     }
-      //   }
-      // }
+      {
+        path: '',
+        data: {
+          menu: {
+            title: 'Menu Level 1',
+            icon: 'ion-ios-more',
+            selected: false,
+            expanded: false,
+            order: 700,
+          }
+        },
+        children: [
+          {
+            path: '',
+            data: {
+              menu: {
+                title: 'Menu Level 1.1',
+                url: '#'
+              }
+            }
+          },
+          {
+            path: '',
+            data: {
+              menu: {
+                title: 'Menu Level 1.2',
+                url: '#'
+              }
+            },
+            children: [
+              {
+                path: '',
+                data: {
+                  menu: {
+                    title: 'Menu Level 1.2.1',
+                    url: '#'
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        path: '',
+        data: {
+          menu: {
+            title: 'External Link',
+            url: 'http://akveo.com',
+            icon: 'ion-android-exit',
+            order: 800,
+            target: '_blank'
+          }
+        }
+      }
     ]
   }
 ];

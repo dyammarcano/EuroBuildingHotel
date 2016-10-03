@@ -543,7 +543,7 @@ export class SmartTablesService {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(this.smartTableData);
-      }, 500);
+      }, 2000);
     });
   }
 }

@@ -4,7 +4,6 @@ import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/form
 @Component({
   selector: 'login',
   encapsulation: ViewEncapsulation.None,
-  directives: [],
   styles: [require('./login.scss')],
   template: require('./login.html'),
 })
@@ -14,11 +13,6 @@ export class Login {
   public email:AbstractControl;
   public password:AbstractControl;
   public submitted:boolean = false;
-
-  login_title = "control de asistencia eurobuilding";
-  button_title = "ingresar";
-  input_title_password = "contraseña";
-  input_title_email = "correo";
 
   constructor(fb:FormBuilder) {
     this.form = fb.group({

@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'pages',
@@ -30,8 +30,7 @@ import {Component, ViewEncapsulation} from '@angular/core';
 })
 export class Pages {
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
   }

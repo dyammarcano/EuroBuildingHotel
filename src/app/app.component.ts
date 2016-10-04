@@ -32,7 +32,7 @@ export class App {
   ) {
 
     this.startupService.on('message').subscribe((data) => {
-      console.log(data);
+      console.log(`message: ${ data }`);
     });
 
     //this.startupService.connectToAPI();

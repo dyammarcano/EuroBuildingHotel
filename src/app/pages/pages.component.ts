@@ -32,7 +32,7 @@ import { StartupService } from '../shared';
 export class Pages {
 
   constructor(private startupService:StartupService) {
-    this.startupService.on('echo').subscribe((data) => {
+    this.startupService.get('echo').subscribe((data) => {
       console.log(`recive echo: ${data}`);
     });
 

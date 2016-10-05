@@ -11,6 +11,11 @@ import * as _ from 'lodash';
 })
 export class Login {
 
+  input_title_email:string = "correo";
+  input_title_password:string = "contraseña";
+  button_title:string = "aceptar";
+  login_title:string = "hotel eurobuilding";
+
   public form: FormGroup;
   public email: AbstractControl;
   public password: AbstractControl;

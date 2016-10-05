@@ -25,25 +25,15 @@ export class App {
   isMenuCollapsed: boolean = false;
 
   constructor(private _state: GlobalState,
-              private _imageLoader: BaImageLoaderService,
-              private _spinner: BaThemeSpinner,
-              private timeService: TimeService,
-              private startupService: StartupService
+    private _imageLoader: BaImageLoaderService,
+    private _spinner: BaThemeSpinner,
+    private timeService: TimeService,
+    private startupService: StartupService
   ) {
 
-    this.startupService.on('message').subscribe((data) => {
-      console.log(`message: ${ data }`);
+    this.startupService.get('message').subscribe((data) => {
+      console.log(`message: ${data}`);
     });
-
-    //this.startupService.connectToAPI();
-
-    this.timeService
-      .get()
-      .subscribe((data) => {
-        //console.log(`data from service: ${ data }`);
-      },
-      error => console.log(error)
-    );
 
     this._loadImages();
 
@@ -52,13 +42,9 @@ export class App {
     });
   }
 
-  ngOninit() {
-    console.log('App component: ngOninit');
-  }
+  ngOninit() { }
 
-  ngOnDestroy() {
-    console.log('App component: ngOnDestroy');
-  }
+  ngOnDestroy() { }
 
   public ngAfterViewInit(): void {
     // hide spinner once all loaders are completed

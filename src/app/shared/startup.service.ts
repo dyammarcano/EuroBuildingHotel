@@ -36,7 +36,7 @@ export class StartupService {
   }*/
 
   private apiDevice = () => {
-    this.socket = io(`http://${localStorage.getItem('ip')}:5728/device`);
+    this.socket = io(`http://${ localStorage.getItem('ip') }:5728/device`);
 
     this.get('connect').subscribe(() => {
       console.log(`local device connected! id: ${this.socket.id}`)
@@ -56,7 +56,7 @@ export class StartupService {
   }
 
   public emitCrypt(event: string, value: Object) {
-    value = this.encryptMessage(value, this.socket.id);
+    value = CryptoJS.AES.encrypt(value, this.socket.id);
     this.socket.emit(event, value);
   }
 
@@ -74,22 +74,14 @@ export class StartupService {
   public getCrypt(event: string) {
     return Observable.create((observer) => {
       this.socket.on(event, (data) => {
-        data = this.decryptMessage(data, this.socket.id);
+        let bytes = CryptoJS.AES.decrypt(data.toString(), this.socket.id);
+        data = bytes.toString(CryptoJS.enc.Utf8);
         observer.next(data);
       });
       return () => {
         this.socket.disconnect();
       };
     })
-  }
-
-  private encryptMessage = (message, passphrase) => {
-    return CryptoJS.AES.encrypt(message, passphrase);
-  }
-
-  private decryptMessage = (message, passphrase) => {
-    let bytes = CryptoJS.AES.decrypt(message.toString(), passphrase);
-    return bytes.toString(CryptoJS.enc.Utf8);
   }
 
   /*private myFunction = () => {

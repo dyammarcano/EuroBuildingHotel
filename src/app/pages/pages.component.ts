@@ -31,7 +31,7 @@ import { StartupService } from '../shared';
 })
 export class Pages {
 
-  constructor(private startupService:StartupService) {
+  constructor(private startupService: StartupService) {
     this.startupService.get('echo').subscribe((data) => {
       console.log(`recive echo: ${data}`);
     });
@@ -40,10 +40,10 @@ export class Pages {
       let random = Math.random().toString(36).substring(2, 15);
       console.log(`send echo: ${random}`);
       this.startupService.emit('echo', random);
-      //this.startupService.emit({ authenticate: { email:'dyam.marcano@gmail.com', password:'0111100101101111' } });
     }, 5000);
   }
 
-  ngOnInit() {
-  }
+  ngOninit() { }
+
+  ngOnDestroy() { }
 }

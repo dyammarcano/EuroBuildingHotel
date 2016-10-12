@@ -77,10 +77,10 @@ import { SocketService } from './shared/socket.service';
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
-    SocketService,
-    StorageService,
   ],
   providers: [
+    SocketService,
+    StorageService,
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy,

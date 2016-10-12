@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+import { Component } from '@angular/core';
+=======
 import './app.loader.ts';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { GlobalState } from './global.state';
@@ -7,24 +10,15 @@ import { StartupService } from './shared';
 import { SocketService } from 'angular2-socket-client';
 import { BaThemeConfig } from './theme/theme.config';
 import { app, BrowserWindow } from 'electron';
+>>>>>>> master
 
-/*
- * App Component
- * Top Level Component
- */
 @Component({
-  selector: 'app',
-  encapsulation: ViewEncapsulation.None,
-  styles: [
-    require('normalize.css'), require('./app.scss')
-  ],
-  template: `
-    <main [ngClass]="{'menu-collapsed': isMenuCollapsed}" baThemeRun>
-      <div class="additional-bg"></div>
-      <router-outlet></router-outlet>
-    </main>
-  `
+    selector: 'body',
+    template: '<router-outlet></router-outlet>'
 })
+<<<<<<< HEAD
+export class AppComponent { }
+=======
 export class App {
 
   isMenuCollapsed : boolean = false;
@@ -73,3 +67,4 @@ export class App {
     BaThemePreloader.registerLoader(this._imageLoader.load(layoutPaths.images.root + 'sky-bg.jpg'));
   }
 }
+>>>>>>> master

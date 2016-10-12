@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
-import { StartupService } from '../../shared';
+import { StartupService, StorageService } from '../../shared';
 import * as _ from 'lodash';
 
 @Component({
@@ -22,13 +22,16 @@ export class Login {
   public submitted: boolean = false;
 
   constructor(public fb: FormBuilder,
-    public startupService: StartupService
+    public startupService: StartupService,
+    public storage: StorageService
   ) {
 
-    this.startupService.on('authenticate').subscribe((data) => {
-      console.log(`recive authenticate: ${JSON.stringify(data)}`);
+    this.startupService.get('authenticate').subscribe((data) => {
+      console.log(`recive authenticate: ${ JSON.stringify(data) }`);
 
       this.myAlert(data);
+
+      this.checkResponse(data);
 
     });
 
@@ -47,6 +50,13 @@ export class Login {
       alert(data.error);
     } else if (!_.isUndefined(data.status)) {
       alert(data.status);
+    }
+  };
+
+  checkResponse = (data) => {
+    if (!_.isUndefined(data.token)) {
+      console.log(data.token);
+      this.storage.put('token', data.token);
     }
   };
 

@@ -39,7 +39,7 @@ export class StartupService {
     this.socket = io(`http://${ localStorage.getItem('ip') }:5728/device`);
 
     this.get('connect').subscribe(() => {
-      console.log(`local device connected! id: ${this.socket.id}`)
+      console.log(`local device connected! id: ${ this.socket.id }`)
     });
 
     this.get('disconnect').subscribe(() => {

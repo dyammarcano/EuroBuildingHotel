@@ -1,12 +1,12 @@
 import './app.loader.ts';
-import {Component, ViewEncapsulation} from '@angular/core';
-import {GlobalState} from './global.state';
-import {BaImageLoaderService, BaThemePreloader, BaThemeSpinner} from './theme/services';
-import {layoutPaths} from './theme/theme.constants';
-import {StartupService} from './shared';
-import {SocketService} from 'angular2-socket-client';
-import {BaThemeConfig} from './theme/theme.config';
-import * as NW from 'nw.gui';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { GlobalState } from './global.state';
+import { BaImageLoaderService, BaThemePreloader, BaThemeSpinner } from './theme/services';
+import { layoutPaths } from './theme/theme.constants';
+import { StartupService } from './shared';
+import { SocketService } from 'angular2-socket-client';
+import { BaThemeConfig } from './theme/theme.config';
+import { app, BrowserWindow } from 'electron';
 
 /*
  * App Component
@@ -27,9 +27,15 @@ import * as NW from 'nw.gui';
 })
 export class App {
 
-  isMenuCollapsed: boolean = false;
+  isMenuCollapsed : boolean = false;
 
-  constructor(public nw:NW, private _state : GlobalState, private _imageLoader : BaImageLoaderService, private _spinner : BaThemeSpinner, private _config : BaThemeConfig, private startupService : StartupService) {
+  constructor(
+    private _state : GlobalState,
+    private _imageLoader : BaImageLoaderService,
+    private _spinner : BaThemeSpinner,
+    private _config : BaThemeConfig,
+    private startupService : StartupService
+  ) {
 
     this
       .startupService

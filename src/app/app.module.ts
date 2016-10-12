@@ -1,23 +1,23 @@
-import {NgModule, ApplicationRef} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
-import {RouterModule} from '@angular/router';
-import {removeNgStyles, createNewHosts, createInputTransfer} from '@angularclass/hmr';
-import {StorageService, StartupService} from './shared';
+import { NgModule, ApplicationRef } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
+import { StorageService, StartupService } from './shared';
 
 /*
  * Platform and Environment providers/directives/pipes
  */
-import {ENV_PROVIDERS} from './environment';
-import {routing} from './app.routing';
+import { ENV_PROVIDERS } from './environment';
+import { routing } from './app.routing';
 
 // App is our top level component
-import {App} from './app.component';
-import {AppState, InteralStateType} from './app.service';
-import {GlobalState} from './global.state';
-import {NgaModule} from './theme/nga.module';
-import {PagesModule} from './pages/pages.module';
+import { App } from './app.component';
+import { AppState, InteralStateType } from './app.service';
+import { GlobalState } from './global.state';
+import { NgaModule } from './theme/nga.module';
+import { PagesModule } from './pages/pages.module';
 
 // Application wide providers
 const APP_PROVIDERS = [AppState, GlobalState, StartupService, StorageService];
@@ -32,8 +32,12 @@ type StoreType = {
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
 @NgModule({
-  bootstrap: [App],
-  declarations: [App],
+  bootstrap: [
+    App
+  ],
+  declarations: [
+    App
+  ],
   imports: [ // import Angular's modules
     BrowserModule,
     HttpModule,
@@ -52,11 +56,11 @@ type StoreType = {
 
 export class AppModule {
 
-  constructor(public appRef : ApplicationRef, public appState : AppState) {}
+  constructor(public appRef: ApplicationRef, public appState: AppState) {
+  }
 
-  hmrOnInit(store : StoreType) {
-    if (!store || !store.state) 
-      return;
+  hmrOnInit(store: StoreType) {
+    if (!store || !store.state) return;
     console.log('HMR store', JSON.stringify(store, null, 2));
     // set state
     this.appState._state = store.state;
@@ -65,18 +69,13 @@ export class AppModule {
       let restoreInputValues = store.restoreInputValues;
       setTimeout(restoreInputValues);
     }
-    this
-      .appRef
-      .tick();
+    this.appRef.tick();
     delete store.state;
     delete store.restoreInputValues;
   }
 
-  hmrOnDestroy(store : StoreType) {
-    const cmpLocation = this
-      .appRef
-      .components
-      .map(cmp => cmp.location.nativeElement);
+  hmrOnDestroy(store: StoreType) {
+    const cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
     // save state
     const state = this.appState._state;
     store.state = state;
@@ -88,7 +87,7 @@ export class AppModule {
     removeNgStyles();
   }
 
-  hmrAfterDestroy(store : StoreType) {
+  hmrAfterDestroy(store: StoreType) {
     // display new elements
     store.disposeOldHosts();
     delete store.disposeOldHosts;

@@ -2,24 +2,22 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import * as io from 'socket.io-client';
 import * as _ from 'lodash';
-import * as CryptoJS from 'crypto-js';
 
 @Injectable()
 export class StartupService {
 
-  private url: string = "http://node-5622245.rhcloud.com:8000";
-  private socket: any;
-  private ip: string;
-  private device: string;
+  private url : string = 'http://node-5622245.rhcloud.com:8000';
+  private socket : any;
+  private ip : string;
+  private device : string;
 
   constructor() {
 
-    if (_.isNull(localStorage.getItem('ip'))) {
-      //this.apiServer();
-      //this.myFunction();
+    /*if (_.isNull(localStorage.getItem('ip'))) {
+      //this.apiServer(); this.myFunction();
     } else {
       this.apiDevice();
-    }
+    }*/
   }
 
   /*private apiServer = () => {
@@ -35,53 +33,45 @@ export class StartupService {
     });
   }*/
 
-  private apiDevice = () => {
-    this.socket = io(`http://${ localStorage.getItem('ip') }:5728/device`);
+ /* private apiDevice = () => {
+    this.socket = io(`http://${localStorage.getItem('ip')}:5728/device`);
 
-    this.get('connect').subscribe(() => {
-      console.log(`local device connected! id: ${ this.socket.id }`)
-    });
+    this
+      .get('connect')
+      .subscribe(() => {
+        console.log(`local device connected! id: ${this.socket.id}`)
+      });
 
-    this.get('disconnect').subscribe(() => {
-      console.log('local device disconnected!')
-    });
-  }
+    this
+      .get('disconnect')
+      .subscribe(() => {
+        console.log('local device disconnected!')
+      });
+  }*/
 
-  public on(event: string) {
+  on(event : string) {
     return Observable.fromEvent(this.socket, event);
   }
 
-  public emit(event: string, value: Object) {
-    this.socket.emit(event, value);
+  emit(event : string, value : Object) {
+    this
+      .socket
+      .emit(event, value);
   }
 
-  public emitCrypt(event: string, value: Object) {
-    value = CryptoJS.AES.encrypt(value, this.socket.id);
-    this.socket.emit(event, value);
-  }
-
-  public get(event: string) {
+  get(event : string) {
     return Observable.create((observer) => {
-      this.socket.on(event, (data) => {
-        observer.next(data);
-      });
+      this
+        .socket
+        .on(event, (data) => {
+          observer.next(data);
+        });
       return () => {
-        this.socket.disconnect();
+        this
+          .socket
+          .disconnect();
       };
-    })
-  }
-
-  public getCrypt(event: string) {
-    return Observable.create((observer) => {
-      this.socket.on(event, (data) => {
-        let bytes = CryptoJS.AES.decrypt(data.toString(), this.socket.id);
-        data = bytes.toString(CryptoJS.enc.Utf8);
-        observer.next(data);
-      });
-      return () => {
-        this.socket.disconnect();
-      };
-    })
+    });
   }
 
   /*private myFunction = () => {

@@ -1,5 +1,6 @@
 import { Directive, HostListener } from '@angular/core';
 
+
 /**
 * Allows the sidebar to be toggled via click.
 */
@@ -9,13 +10,13 @@ import { Directive, HostListener } from '@angular/core';
 export class SidebarToggleDirective {
     constructor() { }
 
-    //Check if element has class
-    private hasClass(target:any, elementClassName:string) {
+    // Check if element has class
+    private hasClass(target: any, elementClassName: string) {
         return new RegExp('(\\s|^)' + elementClassName + '(\\s|$)').test(target.className);
     }
 
-    //Toggle element class
-    private toggleClass(elem:any, elementClassName:string) {
+    // Toggle element class
+    private toggleClass(elem: any, elementClassName: string) {
         let newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ' ) + ' ';
         if (this.hasClass(elem, elementClassName)) {
             while (newClass.indexOf(' ' + elementClassName + ' ') >= 0 ) {
@@ -28,7 +29,7 @@ export class SidebarToggleDirective {
     }
 
     @HostListener('click', ['$event'])
-    toggleOpen($event:any) {
+    toggleOpen($event: any) {
         $event.preventDefault();
 
         let bodyClass = localStorage.getItem('body-class');
@@ -36,10 +37,10 @@ export class SidebarToggleDirective {
         if (this.hasClass(document.querySelector('body'), 'sidebar-off-canvas')) {
             this.toggleClass(document.querySelector('body'), 'sidebar-opened');
             this.toggleClass(document.querySelector('html'), 'sidebar-opened');
-        } else if (this.hasClass(document.querySelector('body'), 'sidebar-nav') || bodyClass == 'sidebar-nav') {
+        } else if (this.hasClass(document.querySelector('body'), 'sidebar-nav') || bodyClass === 'sidebar-nav') {
             this.toggleClass(document.querySelector('body'), 'sidebar-nav');
             localStorage.setItem('body-class', 'sidebar-nav');
-            if (bodyClass == 'sidebar-nav') {
+            if (bodyClass === 'sidebar-nav') {
                 localStorage.clear();
             }
         }
@@ -52,13 +53,13 @@ export class SidebarToggleDirective {
 export class MobileSidebarToggleDirective {
     constructor() { }
 
-    //Check if element has class
-    private hasClass(target:any, elementClassName:string) {
+    // Check if element has class
+    private hasClass(target: any, elementClassName: string) {
         return new RegExp('(\\s|^)' + elementClassName + '(\\s|$)').test(target.className);
     }
 
-    //Toggle element class
-    private toggleClass(elem:any, elementClassName:string) {
+    // Toggle element class
+    private toggleClass(elem: any, elementClassName: string) {
         let newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ' ) + ' ';
         if (this.hasClass(elem, elementClassName)) {
             while (newClass.indexOf(' ' + elementClassName + ' ') >= 0 ) {
@@ -71,7 +72,7 @@ export class MobileSidebarToggleDirective {
     }
 
     @HostListener('click', ['$event'])
-    toggleOpen($event:any) {
+    toggleOpen($event: any) {
         $event.preventDefault();
 
         this.toggleClass(document.querySelector('body'), 'mobile-open');
@@ -89,13 +90,13 @@ export class MobileSidebarToggleDirective {
 export class SidebarOffCanvasCloseDirective {
     constructor() { }
 
-    //Check if element has class
-    private hasClass(target:any, elementClassName:string) {
+    // Check if element has class
+    private hasClass(target: any, elementClassName: string) {
         return new RegExp('(\\s|^)' + elementClassName + '(\\s|$)').test(target.className);
     }
 
-    //Toggle element class
-    private toggleClass(elem:any, elementClassName:string) {
+    // Toggle element class
+    private toggleClass(elem: any, elementClassName: string) {
         let newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ' ) + ' ';
         if (this.hasClass(elem, elementClassName)) {
             while (newClass.indexOf(' ' + elementClassName + ' ') >= 0 ) {
@@ -108,7 +109,7 @@ export class SidebarOffCanvasCloseDirective {
     }
 
     @HostListener('click', ['$event'])
-    toggleOpen($event:any) {
+    toggleOpen($event: any) {
         $event.preventDefault();
 
         if (this.hasClass(document.querySelector('body'), 'sidebar-off-canvas')) {
@@ -117,4 +118,8 @@ export class SidebarOffCanvasCloseDirective {
     }
 }
 
-export const SIDEBAR_TOGGLE_DIRECTIVES = [SidebarToggleDirective, SidebarOffCanvasCloseDirective, MobileSidebarToggleDirective];
+export const SIDEBAR_TOGGLE_DIRECTIVES = [
+  SidebarToggleDirective,
+  SidebarOffCanvasCloseDirective,
+  MobileSidebarToggleDirective,
+];

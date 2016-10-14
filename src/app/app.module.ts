@@ -4,48 +4,48 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
-import { NAV_DROPDOWN_DIRECTIVES } from './shared/nav-dropdown.directive';
+import { NAV_DROPDOWN_DIRECTIVES } from './shared/directives/nav-dropdown.directive';
 
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-import { SIDEBAR_TOGGLE_DIRECTIVES } from './shared/sidebar.directive';
-import { AsideToggleDirective } from './shared/aside.directive';
-import { BreadcrumbsComponent } from './shared/breadcrumb.component';
+import { SIDEBAR_TOGGLE_DIRECTIVES } from './shared/directives/sidebar.directive';
+import { AsideToggleDirective } from './shared/directives/aside.directive';
+import { BreadcrumbsComponent } from './shared/components/breadcrumb.component';
 import { routing } from './app.routing';
 
 //Layouts
-import { FullLayoutComponent } from './layouts/full-layout.component';
-import { SimpleLayoutComponent } from './layouts/simple-layout.component';
+import { FullLayoutComponent } from './components/layouts/full-layout.component';
+import { SimpleLayoutComponent } from './components/layouts/simple-layout.component';
 
 //Main view
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 //Components
-import { ButtonsComponent } from './components/buttons.component';
-import { CardsComponent } from './components/cards.component';
-import { FormsComponent } from './components/forms.component';
-import { SocialButtonsComponent } from './components/social-buttons.component';
-import { SwitchesComponent } from './components/switches.component';
-import { TablesComponent } from './components/tables.component';
+import { ButtonsComponent } from './components/buttons/buttons.component';
+import { CardsComponent } from './components/cards/cards.component';
+import { FormsComponent } from './components/forms/forms.component';
+import { SocialButtonsComponent } from './components/social/social-buttons.component';
+import { SwitchesComponent } from './components/switches/switches.component';
+import { TablesComponent } from './components/tables/tables.component';
 
 //Icons
-import { FontAwesomeComponent } from './icons/font-awesome.component';
-import { SimpleLineIconsComponent } from './icons/simple-line-icons.component';
+import { FontAwesomeComponent } from './components/icons/font-awesome.component';
+import { SimpleLineIconsComponent } from './components/icons/simple-line-icons.component';
 
 //Widgets
-import { WidgetsComponent } from './widgets/widgets.component';
+import { WidgetsComponent } from './components/widgets/widgets.component';
 
 //Charts
-import { ChartsComponent } from './charts/charts.component';
+import { ChartsComponent } from './components/charts/charts.component';
 
 //Pages
-import { p404Component } from './pages/404.component';
-import { p500Component } from './pages/500.component';
-import { LoginComponent } from './pages/login.component';
-import { RegisterComponent } from './pages/register.component';
+import { p404Component } from './pages/404/404.component';
+import { p500Component } from './pages/500/500.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 //Services
-import { StorageService } from './shared/storage.service';
-import { SocketService } from './shared/socket.service';
+import { StorageService } from './shared/services/storage.service';
+import { SocketService } from './shared/services/socket.service';
 
 @NgModule({
   imports: [

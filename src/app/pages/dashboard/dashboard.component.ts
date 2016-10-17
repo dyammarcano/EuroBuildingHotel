@@ -1,12 +1,11 @@
-import { Component, OnInit }    from '@angular/core';
-import { Router }               from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
     templateUrl: 'dashboard.component.html'
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
-    constructor( ) { }
+    constructor() { }
 
     public brandPrimary:string =  '#20a8d8';
     public brandSuccess:string =  '#4dbd74';

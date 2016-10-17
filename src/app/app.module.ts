@@ -13,32 +13,33 @@ import { BreadcrumbsComponent } from './shared/components/breadcrumb.component';
 import { routing } from './app.routing';
 
 //Layouts
-import { FullLayoutComponent } from './components/layouts/full-layout.component';
-import { SimpleLayoutComponent } from './components/layouts/simple-layout.component';
+import { FullLayoutComponent } from './shared/components/sidebar/full/full-layout.component';
+import { SimpleLayoutComponent } from './shared/components/sidebar/simple/simple-layout.component';
 
 //Main view
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 //Components
-import { ButtonsComponent } from './components/buttons/buttons.component';
-import { CardsComponent } from './components/cards/cards.component';
-import { FormsComponent } from './components/forms/forms.component';
-import { SocialButtonsComponent } from './components/social/social-buttons.component';
-import { SwitchesComponent } from './components/switches/switches.component';
-import { TablesComponent } from './components/tables/tables.component';
+import { ButtonsComponent } from './pages/components/buttons/buttons.component';
+import { CardsComponent } from './pages/components/cards/cards.component';
+import { FormsComponent } from './pages/components/forms/forms.component';
+import { SocialButtonsComponent } from './pages/components/social/social-buttons.component';
+import { SwitchesComponent } from './pages/components/switches/switches.component';
+import { TablesComponent } from './pages/components/tables/tables.component';
 
 //Icons
-import { FontAwesomeComponent } from './components/icons/font-awesome.component';
-import { SimpleLineIconsComponent } from './components/icons/simple-line-icons.component';
+import { FontAwesomeComponent } from './pages/components/icons/font-awesome.component';
+import { SimpleLineIconsComponent } from './pages/components/icons/simple-line-icons.component';
 
 //Widgets
-import { WidgetsComponent } from './components/widgets/widgets.component';
+import { WidgetsComponent } from './pages/components/widgets/widgets.component';
 
 //Charts
-import { ChartsComponent } from './components/charts/charts.component';
+import { ChartsComponent } from './pages/components/charts/charts.component';
 
 //Pages
 import { LoginComponent } from './pages/login/login.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 //Services
 import { StorageService } from './shared/services/storage.service';
@@ -67,6 +68,7 @@ import { SocketService } from './shared/services/socket.service';
     WidgetsComponent,
     ChartsComponent,
     LoginComponent,
+    SettingsComponent,
     NAV_DROPDOWN_DIRECTIVES,
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,

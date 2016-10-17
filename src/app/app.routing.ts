@@ -26,17 +26,30 @@ import { WidgetsComponent } from './components/widgets/widgets.component';
 import { ChartsComponent } from './components/charts/charts.component';
 
 //Pages
-import { p404Component } from './pages/404/404.component';
-import { p500Component } from './pages/500/500.component';
 import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
 
 const appRoutes : Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full'
-  }, {
+    pathMatch: 'full',
+    redirectTo: 'dashboard'
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: {
+      title: 'Login Page'
+    }
+  },
+  {
+    path: 'pages',
+    component: SimpleLayoutComponent,
+    data: {
+      title: 'Pages'
+    },
+    children: []
+  },
+  {
     path: '',
     component: FullLayoutComponent,
     data: {
@@ -49,11 +62,13 @@ const appRoutes : Routes = [
         data: {
           title: 'Dashboard'
         }
-      }, {
+      },
+      {
         path: 'components',
         redirectTo: 'components/buttons',
         pathMatch: 'full'
-      }, {
+      },
+      {
         path: 'components',
         data: {
           title: 'Components'
@@ -65,31 +80,36 @@ const appRoutes : Routes = [
             data: {
               title: 'Buttons'
             }
-          }, {
+          },
+          {
             path: 'cards',
             component: CardsComponent,
             data: {
               title: 'Cards'
             }
-          }, {
+          },
+          {
             path: 'forms',
             component: FormsComponent,
             data: {
               title: 'Forms'
             }
-          }, {
+          },
+          {
             path: 'social-buttons',
             component: SocialButtonsComponent,
             data: {
               title: 'Social buttons'
             }
-          }, {
+          },
+          {
             path: 'switches',
             component: SwitchesComponent,
             data: {
               title: 'Switches'
             }
-          }, {
+          },
+          {
             path: 'tables',
             component: TablesComponent,
             data: {
@@ -97,11 +117,13 @@ const appRoutes : Routes = [
             }
           }
         ]
-      }, {
+      },
+      {
         path: 'icons',
         redirectTo: 'icons/font-awesome',
         pathMatch: 'full'
-      }, {
+      },
+      {
         path: 'icons',
         data: {
           title: 'Icons'
@@ -113,7 +135,8 @@ const appRoutes : Routes = [
             data: {
               title: 'Font Awesome'
             }
-          }, {
+          },
+          {
             path: 'simple-line-icons',
             component: SimpleLineIconsComponent,
             data: {
@@ -121,50 +144,19 @@ const appRoutes : Routes = [
             }
           }
         ]
-      }, {
+      },
+      {
         path: 'widgets',
         component: WidgetsComponent,
         data: {
           title: 'Widgets'
         }
-      }, {
+      },
+      {
         path: 'charts',
         component: ChartsComponent,
         data: {
           title: 'Charts'
-        }
-      }
-    ]
-  }, {
-    path: 'pages',
-    component: SimpleLayoutComponent,
-    data: {
-      title: 'Pages'
-    },
-    children: [
-      {
-        path: '404',
-        component: p404Component,
-        data: {
-          title: 'Page 404'
-        }
-      }, {
-        path: '500',
-        component: p500Component,
-        data: {
-          title: 'Page 500'
-        }
-      }, {
-        path: 'login',
-        component: LoginComponent,
-        data: {
-          title: 'Login Page'
-        }
-      }, {
-        path: 'register',
-        component: RegisterComponent,
-        data: {
-          title: 'Register Page'
         }
       }
     ]

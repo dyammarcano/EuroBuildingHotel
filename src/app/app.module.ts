@@ -38,10 +38,7 @@ import { WidgetsComponent } from './components/widgets/widgets.component';
 import { ChartsComponent } from './components/charts/charts.component';
 
 //Pages
-import { p404Component } from './pages/404/404.component';
-import { p500Component } from './pages/500/500.component';
 import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
 
 //Services
 import { StorageService } from './shared/services/storage.service';
@@ -69,10 +66,7 @@ import { SocketService } from './shared/services/socket.service';
     SimpleLineIconsComponent,
     WidgetsComponent,
     ChartsComponent,
-    p404Component,
-    p500Component,
     LoginComponent,
-    RegisterComponent,
     NAV_DROPDOWN_DIRECTIVES,
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,

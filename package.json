@@ -1,19 +1,20 @@
 {
-  "name": "CoreUI",
-  "version": "1.0.0-alpha.2",
-  "description": "Open Source Bootstrap Admin Template",
-  "author": "",
-  "url": "http://coreui.io",
-  "copyright": "Copyright 2016 creativeLabs Łukasz Holeczek",
-  "license": "MIT",
+  "name": "EuroBuildingHotel",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dyammarcano/EuroBuildingHotel.git"
+  },
+  "author": "Dyam Marcano <dyam.marcano@gmail.com>",
   "angular-cli": {},
   "scripts": {
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
+    "build": "ng build --prod",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
-    "gource": "gource --camera-mode track -1280x720 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 visualization.mp4"
+    "gource": "gource -1280x720 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 visualization.mp4"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +37,7 @@
     "moment": "^2.15.1",
     "ng2-bootstrap": "^1.1.11",
     "ng2-charts": "^1.4.0",
+    "rimraf": "^2.5.4",
     "rxjs": "5.0.0-beta.12",
     "socket.io-client": "^1.5.0",
     "ts-helpers": "^1.1.1",
@@ -61,5 +63,12 @@
     "ts-node": "1.4.1",
     "tslint": "^3.15.1",
     "typescript": "^2.0.3"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/dyammarcano/EuroBuildingHotel/issues"
+  },
+  "homepage": "https://github.com/dyammarcano/EuroBuildingHotel#readme",
+  "main": "karma.conf.js",
+  "license": "MIT",
+  "description": ""
 }

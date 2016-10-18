@@ -1,15 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StorageService } from './shared/services/storage.service';
-
+//import { SpinnerService } from './shared/services/spinner.service';
 
 @Component({
   selector: 'body',
   template: '<router-outlet></router-outlet>'
 })
-export class AppComponent {
-  constructor(private storage: StorageService) {
-    this.storage.put('hora', String(new Date()));
+export class AppComponent implements OnInit {
+  constructor(private _storage: StorageService/*, private _spinner: SpinnerService*/) { }
+
+  public ngOnInit(): void { }
+
+  private ngAfterViewInit(): void {
+    this.lastLogin();
+    //this._spinner.hide();
   }
 
-  ngOnInit() { }
+  private lastLogin(): void {
+    let last_login = this._storage.get('last_login');
+    this._storage.put('last_login', String(new Date()));
+  }
  }

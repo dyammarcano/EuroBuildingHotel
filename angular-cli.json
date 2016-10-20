@@ -1,7 +1,7 @@
 {
   "project": {
-    "version": "1.0.0-alpha.2",
-    "name": "core-ui"
+    "version": "1.0.0-beta.17",
+    "name": "upgrade"
   },
   "apps": [
     {
@@ -15,7 +15,7 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "scss/style.scss"
+        "styles.scss"
       ],
       "scripts": [
         "../node_modules/chart.js/dist/Chart.bundle.min.js",

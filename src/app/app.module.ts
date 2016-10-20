@@ -1,7 +1,12 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
 import { AppComponent } from './app.component';
+import { TimeService } from './shared/services/time.service';
+
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { NAV_DROPDOWN_DIRECTIVES } from './shared/sidebar/directives/nav-dropdown.directive';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -13,12 +18,14 @@ import { FullLayoutComponent } from './shared/sidebar/full/full-layout.component
 import { SimpleLayoutComponent } from './shared/sidebar/simple/simple-layout.component';
 import { SocketService } from './shared/services/socket.service';
 import { StorageService } from './shared/services/storage.service';
-//import { SpinnerService } from './shared/services/spinner.service';
+
 
 @NgModule({
   imports: [
     BrowserModule,
     AppRouting,
+    FormsModule,
+    HttpModule,
     Ng2BootstrapModule,
     ChartsModule,
   ],
@@ -32,16 +39,16 @@ import { StorageService } from './shared/services/storage.service';
     AsideToggleDirective,
   ],
   providers: [
+    TimeService,
     StorageService,
     SocketService,
-    //SpinnerService,
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy,
     }
   ],
   bootstrap: [
-    AppComponent,
+    AppComponent
   ]
 })
 export class AppModule { }

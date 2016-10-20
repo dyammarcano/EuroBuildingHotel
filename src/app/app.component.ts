@@ -1,23 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { TimeService } from './shared/services/time.service';
 import { StorageService } from './shared/services/storage.service';
-//import { SpinnerService } from './shared/services/spinner.service';
+
 
 @Component({
   selector: 'body',
-  template: '<router-outlet></router-outlet>'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  constructor(private _storage: StorageService/*, private _spinner: SpinnerService*/) { }
+export class AppComponent {
 
-  public ngOnInit(): void { }
+  title: string = "";
 
-  private ngAfterViewInit(): void {
-    this.lastLogin();
-    //this._spinner.hide();
+  constructor(
+    private _storage: StorageService,
+    private time: TimeService
+  ) {
+    this.time.get().subscribe((data) => {
+      this.title = data;
+    })
   }
-
-  private lastLogin(): void {
-    let last_login = this._storage.get('last_login');
-    this._storage.put('last_login', String(new Date()));
-  }
- }
+}

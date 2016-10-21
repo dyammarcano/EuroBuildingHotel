@@ -1,0 +1,8 @@
+@import "~bootstrap/scss/breadcrumb";
+
+.breadcrumb {
+    position: relative;
+    margin-bottom: 1.5 * $spacer-y;
+
+    @include borders($breadcrumb-borders);
+}

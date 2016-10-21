@@ -1,82 +1,63 @@
-// 3rd dependencies
-@import "theme/3rd/ioniccons";
-@import "theme/3rd/normalize";
-@import "theme/3rd/animate";
-
-// Spinner styles
-@import "theme/core/spinner";
-
 // Fonts dependencies
-@import "theme/config/fonts";
+@import "theme/core/config/fonts";
 
 // Core variables and mixins
-@import "theme/config/logo";
+@import "theme/core/config/logo";
 @import "theme/core/bootstrap-variables";
-@import "theme/bootstrap_src/variables";
-//@import "theme/core/custom-variables";
-@import "theme/config/variables";
-@import "theme/bootstrap_src/mixins";
+@import "~bootstrap/scss/variables";
+@import "theme/core/config/variables";
+@import "~bootstrap/scss/mixins";
 @import "theme/core/mixins";
 
-//// Reset and dependencies
-//@import "theme/bootstrap_src/normalize";
-@import "theme/bootstrap_src/print";
+// 3rd dependencies
+@import "theme/3rd/ioniccons";
+@import "theme/3rd/animate";
+@import "theme/3rd/chart";
+
+// Reset and dependencies
+@import "~bootstrap/scss/normalize";
+@import "~bootstrap/scss/print";
 
 // Core CSS
-@import "theme/bootstrap_src/reboot";
-@import "theme/bootstrap_src/type";
-@import "theme/bootstrap_src/images";
-@import "theme/bootstrap_src/code";
-@import "theme/bootstrap_src/grid";
-@import "theme/bootstrap_src/tables";
-@import "theme/bootstrap_custom/tables";
-@import "theme/bootstrap_src/forms";
-@import "theme/bootstrap_src/buttons";
-@import "theme/bootstrap_custom/buttons";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/code";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "theme/core/bootstrap/custom/buttons";
 
 // Components
-@import "theme/bootstrap_src/animation";
-@import "theme/bootstrap_src/dropdown";
-@import "theme/bootstrap_custom/dropdown";
-@import "theme/bootstrap_src/button-group";
-@import "theme/bootstrap_src/input-group";
-@import "theme/bootstrap_custom/input-group";
-//@import "custom-forms";
-@import "theme/bootstrap_src/nav";
-@import "theme/bootstrap_src/navbar";
-@import "theme/bootstrap_custom/navbar";
-@import "theme/bootstrap_src/card";
-@import "theme/bootstrap_custom/card";
-@import "theme/bootstrap_src/breadcrumb";
-@import "theme/bootstrap_custom/breadcrumb";
-@import "theme/bootstrap_src/pagination";
-@import "theme/bootstrap_src/tags";
-@import "theme/bootstrap_custom/tags";
-//@import "jumbotron";
-@import "theme/bootstrap_src/alert";
-@import "theme/bootstrap_src/progress";
-@import "theme/bootstrap_custom/progress";
-@import "theme/bootstrap_src/media";
-@import "theme/bootstrap_src/list-group";
-@import "theme/bootstrap_src/responsive-embed";
-@import "theme/bootstrap_src/close";
+@import "~bootstrap/scss/animation";
+@import "theme/core/bootstrap/custom/dropdown";
+@import "theme/core/bootstrap/custom/input-group";
+@import "~bootstrap/scss/custom-forms";
+@import "~bootstrap/scss/nav";
+@import "theme/core/bootstrap/custom/navbar";
+@import "theme/core/bootstrap/custom/card";
+@import "theme/core/bootstrap/custom/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "theme/core/bootstrap/custom/tags";
+@import "~bootstrap/scss/jumbotron";
+@import "~bootstrap/scss/alert";
+@import "theme/core/bootstrap/custom/progress";
+@import "~bootstrap/scss/media";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/responsive-embed";
+@import "~bootstrap/scss/close";
 
 // Components w/ JavaScript
-@import "theme/bootstrap_src/modal";
-@import "theme/bootstrap_src/tooltip";
-@import "theme/bootstrap_src/popover";
-//@import "carousel";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/carousel";
 
 // Utility classes
-@import "theme/bootstrap_src/utilities";
-
-// Vendors Styles
-@import "theme/vendors/vendors";
-
-// Animations
-@import "theme/core/animate";
+@import "~bootstrap/scss/utilities";
 
 // Core files
+@import "theme/core/spinner";
 @import "theme/core/grid";
 @import "theme/core/layout";
 @import "theme/core/navigation";
@@ -92,10 +73,7 @@
 @import "theme/core/switches";
 @import "theme/core/charts";
 @import "theme/core/utilities-border";
+@import "theme/core/mobile";
 
 // Temporary fixes
 @import "theme/core/temp";
-
-// Custom styles
-@import "theme/core/custom";
-

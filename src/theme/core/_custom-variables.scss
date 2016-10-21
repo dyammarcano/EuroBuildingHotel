@@ -48,7 +48,7 @@ $navbar-border: (
 );
 $navbar-brand-width:                155px;
 $navbar-brand-bg:                   #fff;
-$navbar-brand-logo:                 url('../assets/img/logo.png');
+$navbar-brand-logo:                 url('../img/logo.png');
 $navbar-brand-logo-size:            70px auto;
 $navbar-brand-border: (
     bottom: (
@@ -74,7 +74,7 @@ $sidebar-bg:                        $gray-dark;
 $sidebar-header-bg:                 rgba(0,0,0,.2);
 $sidebar-footer-bg:                 rgba(0,0,0,.2);
 $sidebar-borders:                   none;
-$mobile-sidebar-width:              200px;
+$mobile-sidebar-width:              $sidebar-width;
 
 // Sidebar Navigation
 

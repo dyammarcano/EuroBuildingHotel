@@ -1,9 +1,8 @@
-import { NgModule }                 from '@angular/core';
-import { Routes,
-         RouterModule }             from '@angular/router';
-
-import { FontAwesomeComponent }     from './font-awesome/font-awesome.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { FontAwesomeComponent } from './font-awesome/font-awesome.component';
 import { SimpleLineIconsComponent } from './simple-line-icons/simple-line-icons.component';
+
 
 const routes: Routes = [
     {
@@ -31,7 +30,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+    imports: [
+      RouterModule.forChild(routes)
+    ],
+    exports: [
+      RouterModule
+    ]
 })
-export class IconsRoutingModule {}
+export class IconsRoutingModule { }

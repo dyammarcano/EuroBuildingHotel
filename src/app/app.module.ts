@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { AppComponent, AppRouting } from '../app';
+import { AppRouting } from './app.routing';
+import { AppComponent } from './app.component';
 import { LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { NAV_DROPDOWN_DIRECTIVES } from './shared/nav-dropdown.directive';
@@ -14,73 +15,44 @@ import { FullLayoutComponent, SimpleLayoutComponent } from './layouts';
 import { SERVICES } from './shared/services';
 
 
-// const COMPONENTS = [
-//   FullLayoutComponent,
-//   SimpleLayoutComponent,
-//   BreadcrumbsComponent,
-// ];
-//
-// const DIRECTIVES = [
-//   NAV_DROPDOWN_DIRECTIVES,
-//   SIDEBAR_TOGGLE_DIRECTIVES,
-//   AsideToggleDirective,
-// ];
-//
-// const PIPES = [
-//
-// ];
-//
-//
-// @NgModule({
-//   imports: [
-//     CommonModule,
-//     BrowserModule,
-//     AppRouting,
-//     FormsModule,
-//     HttpModule,
-//     Ng2BootstrapModule,
-//     ChartsModule,
-//   ],
-//   declarations: [
-//     AppComponent,
-//     ...PIPES,
-//     ...DIRECTIVES,
-//     ...COMPONENTS,
-//   ],
-//   providers: [
-//     ...SERVICES,
-//     {
-//       provide: LocationStrategy,
-//       useClass: HashLocationStrategy,
-//     }
-//   ],
-//   bootstrap: [
-//     AppComponent
-//   ]
-// })
-// export class AppModule { }
+const COMPONENTS = [
+  FullLayoutComponent,
+  SimpleLayoutComponent,
+  BreadcrumbsComponent,
+];
+
+const DIRECTIVES = [
+  NAV_DROPDOWN_DIRECTIVES,
+  SIDEBAR_TOGGLE_DIRECTIVES,
+  AsideToggleDirective,
+];
+
+const PIPES = [
+
+];
 
 
 @NgModule({
   imports: [
+    CommonModule,
     BrowserModule,
     AppRouting,
+    FormsModule,
+    HttpModule,
     Ng2BootstrapModule,
-    ChartsModule
+    ChartsModule,
   ],
   declarations: [
     AppComponent,
-    FullLayoutComponent,
-    SimpleLayoutComponent,
-    NAV_DROPDOWN_DIRECTIVES,
-    BreadcrumbsComponent,
-    SIDEBAR_TOGGLE_DIRECTIVES,
-    AsideToggleDirective
+    ...PIPES,
+    ...DIRECTIVES,
+    ...COMPONENTS,
   ],
   providers: [
+    ...SERVICES,
     {
       provide: LocationStrategy,
-      useClass: HashLocationStrategy
+      useClass: HashLocationStrategy,
     }
   ],
   bootstrap: [

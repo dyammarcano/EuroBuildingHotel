@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { TimeService } from './shared/services/time.service';
-import { StorageService } from './shared/services/storage.service';
+import { TimeService, StorageService } from './shared/services';
 
 
 @Component({

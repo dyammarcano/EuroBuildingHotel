@@ -1,1 +1,3 @@
-export * from './maps.component';
+export * from './maps.module';
+export * from './maps.routing';
+

@@ -1,7 +1,8 @@
-import { Component }        from '@angular/core';
+import { Component } from '@angular/core';
+
 
 @Component({
-    templateUrl: 'switches.component.html'
+    templateUrl: './switches.component.html'
 })
 export class SwitchesComponent {
 

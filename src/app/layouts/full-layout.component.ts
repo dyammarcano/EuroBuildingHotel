@@ -24,6 +24,4 @@ export class FullLayoutComponent {
       $event.stopPropagation();
       this.status.isopen = !this.status.isopen;
   }
-
-  ngOnInit(): void { }
 }

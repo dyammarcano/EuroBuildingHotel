@@ -1,14 +1,16 @@
-import { NgModule }                 from '@angular/core';
-import { ChartsModule }             from 'ng2-charts/ng2-charts';
+import { NgModule } from '@angular/core';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { WidgetsComponent } from './widgets.component';
+import { WidgetsRoutingModule } from './widgets.routing';
 
-import { WidgetsComponent }       from './widgets.component';
-import { WidgetsRoutingModule }   from './widgets.routing';
 
 @NgModule({
     imports: [
         WidgetsRoutingModule,
-        ChartsModule
+        ChartsModule,
     ],
-    declarations: [ WidgetsComponent ]
+    declarations: [
+      WidgetsComponent
+    ]
 })
 export class WidgetsModule { }

@@ -4,7 +4,7 @@ import { FullLayoutComponent } from './layouts/full-layout.component';
 import { SimpleLayoutComponent } from './layouts/simple-layout.component';
 
 
-export const appRoutes: Routes = [
+export const routes: Routes = [
     {
         path: '',
         redirectTo: 'dashboard',
@@ -19,7 +19,7 @@ export const appRoutes: Routes = [
         children: [
             {
                 path: 'dashboard',
-                loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
+                loadChildren: 'app/pages/dashboard/dashboard.module#DashboardModule'
             },
             {
                 path: 'components',
@@ -56,7 +56,7 @@ export const appRoutes: Routes = [
 
 @NgModule({
     imports: [
-      RouterModule.forRoot(appRoutes)
+      RouterModule.forRoot(routes)
     ],
     exports: [
       RouterModule

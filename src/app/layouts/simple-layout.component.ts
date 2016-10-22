@@ -1,12 +1,11 @@
-import { Component, OnInit }        from '@angular/core';
+import { Component } from '@angular/core';
+
 
 @Component({
     selector: 'app-dashboard',
     template: '<router-outlet></router-outlet>',
 })
-export class SimpleLayoutComponent implements OnInit {
+export class SimpleLayoutComponent {
 
     constructor() { }
-
-    ngOnInit(): void { }
 }

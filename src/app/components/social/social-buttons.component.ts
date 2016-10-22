@@ -1,7 +1,8 @@
-import { Component }        from '@angular/core';
+import { Component } from '@angular/core';
+
 
 @Component({
-    templateUrl: 'social-buttons.component.html'
+    templateUrl: './social-buttons.component.html'
 })
 export class SocialButtonsComponent {
 

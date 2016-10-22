@@ -1,21 +1,21 @@
 import { Directive, HostListener } from '@angular/core';
+import { StorageService } from './services';
 
-/**
-* Allows the sidebar to be toggled via click.
-*/
+
 @Directive({
     selector: '.sidebar-toggle',
 })
 export class SidebarToggleDirective {
-    constructor() { }
+
+    constructor(private _storage: StorageService) { }
 
     //Check if element has class
-    private hasClass(target:any, elementClassName:string) {
+    private hasClass(target: any, elementClassName: string) {
         return new RegExp('(\\s|^)' + elementClassName + '(\\s|$)').test(target.className);
     }
 
     //Toggle element class
-    private toggleClass(elem:any, elementClassName:string) {
+    private toggleClass(elem: any, elementClassName: string) {
         let newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ' ) + ' ';
         if (this.hasClass(elem, elementClassName)) {
             while (newClass.indexOf(' ' + elementClassName + ' ') >= 0 ) {
@@ -28,19 +28,19 @@ export class SidebarToggleDirective {
     }
 
     @HostListener('click', ['$event'])
-    toggleOpen($event:any) {
+    toggleOpen($event: any) {
         $event.preventDefault();
 
-        let bodyClass = localStorage.getItem('body-class');
+        let bodyClass = this._storage.get('body-class');
 
         if (this.hasClass(document.querySelector('body'), 'sidebar-off-canvas')) {
             this.toggleClass(document.querySelector('body'), 'sidebar-opened');
             this.toggleClass(document.querySelector('html'), 'sidebar-opened');
         } else if (this.hasClass(document.querySelector('body'), 'sidebar-nav') || bodyClass == 'sidebar-nav') {
             this.toggleClass(document.querySelector('body'), 'sidebar-nav');
-            localStorage.setItem('body-class', 'sidebar-nav');
+            this._storage.put('body-class', 'sidebar-nav');
             if (bodyClass == 'sidebar-nav') {
-                localStorage.clear();
+                this._storage.del('body-class');
             }
         }
     }
@@ -53,12 +53,12 @@ export class MobileSidebarToggleDirective {
     constructor() { }
 
     //Check if element has class
-    private hasClass(target:any, elementClassName:string) {
+    private hasClass(target: any, elementClassName: string) {
         return new RegExp('(\\s|^)' + elementClassName + '(\\s|$)').test(target.className);
     }
 
     //Toggle element class
-    private toggleClass(elem:any, elementClassName:string) {
+    private toggleClass(elem: any, elementClassName: string) {
         let newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ' ) + ' ';
         if (this.hasClass(elem, elementClassName)) {
             while (newClass.indexOf(' ' + elementClassName + ' ') >= 0 ) {
@@ -71,7 +71,7 @@ export class MobileSidebarToggleDirective {
     }
 
     @HostListener('click', ['$event'])
-    toggleOpen($event:any) {
+    toggleOpen($event: any) {
         $event.preventDefault();
 
         this.toggleClass(document.querySelector('body'), 'mobile-open');

@@ -2,32 +2,71 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
-import { AppComponent } from './app.component';
-import { TimeService } from './shared/services/time.service';
-
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { AppComponent, AppRouting } from '../app';
+import { LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
 import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
-import { NAV_DROPDOWN_DIRECTIVES } from './shared/sidebar/directives/nav-dropdown.directive';
+import { NAV_DROPDOWN_DIRECTIVES } from './shared/nav-dropdown.directive';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-import { SIDEBAR_TOGGLE_DIRECTIVES } from './shared/sidebar/directives/sidebar.directive';
-import { AsideToggleDirective } from './shared/sidebar/directives/aside.directive';
-import { BreadcrumbsComponent } from './shared/sidebar/components/breadcrumb.component';
-import { AppRouting } from './app.routing';
-import { FullLayoutComponent } from './shared/sidebar/full/full-layout.component';
-import { SimpleLayoutComponent } from './shared/sidebar/simple/simple-layout.component';
-import { SocketService } from './shared/services/socket.service';
-import { StorageService } from './shared/services/storage.service';
+import { SIDEBAR_TOGGLE_DIRECTIVES } from './shared/sidebar.directive';
+import { AsideToggleDirective } from './shared/aside.directive';
+import { BreadcrumbsComponent } from './shared/breadcrumb.component';
+import { FullLayoutComponent, SimpleLayoutComponent } from './layouts';
+import { SERVICES } from './shared/services';
+
+
+// const COMPONENTS = [
+//   FullLayoutComponent,
+//   SimpleLayoutComponent,
+//   BreadcrumbsComponent,
+// ];
+//
+// const DIRECTIVES = [
+//   NAV_DROPDOWN_DIRECTIVES,
+//   SIDEBAR_TOGGLE_DIRECTIVES,
+//   AsideToggleDirective,
+// ];
+//
+// const PIPES = [
+//
+// ];
+//
+//
+// @NgModule({
+//   imports: [
+//     CommonModule,
+//     BrowserModule,
+//     AppRouting,
+//     FormsModule,
+//     HttpModule,
+//     Ng2BootstrapModule,
+//     ChartsModule,
+//   ],
+//   declarations: [
+//     AppComponent,
+//     ...PIPES,
+//     ...DIRECTIVES,
+//     ...COMPONENTS,
+//   ],
+//   providers: [
+//     ...SERVICES,
+//     {
+//       provide: LocationStrategy,
+//       useClass: HashLocationStrategy,
+//     }
+//   ],
+//   bootstrap: [
+//     AppComponent
+//   ]
+// })
+// export class AppModule { }
 
 
 @NgModule({
   imports: [
     BrowserModule,
     AppRouting,
-    FormsModule,
-    HttpModule,
     Ng2BootstrapModule,
-    ChartsModule,
+    ChartsModule
   ],
   declarations: [
     AppComponent,
@@ -36,15 +75,12 @@ import { StorageService } from './shared/services/storage.service';
     NAV_DROPDOWN_DIRECTIVES,
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,
-    AsideToggleDirective,
+    AsideToggleDirective
   ],
   providers: [
-    TimeService,
-    StorageService,
-    SocketService,
     {
       provide: LocationStrategy,
-      useClass: HashLocationStrategy,
+      useClass: HashLocationStrategy
     }
   ],
   bootstrap: [

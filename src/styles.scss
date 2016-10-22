@@ -1,79 +1,83 @@
 // Fonts dependencies
-@import "theme/core/config/fonts";
+//@import 'constants/fonts/fonts';
 
 // Core variables and mixins
-@import "theme/core/config/logo";
-@import "theme/core/bootstrap-variables";
-@import "~bootstrap/scss/variables";
-@import "theme/core/config/variables";
-@import "~bootstrap/scss/mixins";
-@import "theme/core/mixins";
+@import 'theme/images/logo';
+@import 'theme/variables/bootstrap';
+@import '~bootstrap/scss/variables';
+@import 'theme/variables/core';
+@import '~bootstrap/scss/mixins';
+@import 'theme/mixins/mixins';
 
 // 3rd dependencies
-@import "theme/3rd/ioniccons";
-@import "theme/3rd/animate";
-@import "theme/3rd/chart";
+@import 'theme/3rd/animate';
+@import 'theme/3rd/chart';
+
+// Icons dependenies
+@import 'theme/icons/font-awesome';
+@import 'theme/icons/simple-line-icons';
+@import 'theme/icons/ioniccons';
 
 // Reset and dependencies
-@import "~bootstrap/scss/normalize";
-@import "~bootstrap/scss/print";
+@import '~bootstrap/scss/normalize';
+@import '~bootstrap/scss/print';
 
 // Core CSS
-@import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/type";
-@import "~bootstrap/scss/images";
-@import "~bootstrap/scss/code";
-@import "~bootstrap/scss/grid";
-@import "~bootstrap/scss/tables";
-@import "~bootstrap/scss/forms";
-@import "theme/core/bootstrap/custom/buttons";
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/type';
+@import '~bootstrap/scss/images';
+@import '~bootstrap/scss/code';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/tables';
+@import '~bootstrap/scss/forms';
+@import 'theme/bootstrap/overrides/buttons';
 
 // Components
-@import "~bootstrap/scss/animation";
-@import "theme/core/bootstrap/custom/dropdown";
-@import "theme/core/bootstrap/custom/input-group";
-@import "~bootstrap/scss/custom-forms";
-@import "~bootstrap/scss/nav";
-@import "theme/core/bootstrap/custom/navbar";
-@import "theme/core/bootstrap/custom/card";
-@import "theme/core/bootstrap/custom/breadcrumb";
-@import "~bootstrap/scss/pagination";
-@import "theme/core/bootstrap/custom/tags";
-@import "~bootstrap/scss/jumbotron";
-@import "~bootstrap/scss/alert";
-@import "theme/core/bootstrap/custom/progress";
-@import "~bootstrap/scss/media";
-@import "~bootstrap/scss/list-group";
-@import "~bootstrap/scss/responsive-embed";
-@import "~bootstrap/scss/close";
+@import '~bootstrap/scss/animation';
+@import 'theme/bootstrap/overrides/dropdown';
+@import 'theme/bootstrap/overrides/input-group';
+@import '~bootstrap/scss/custom-forms';
+@import '~bootstrap/scss/nav';
+@import 'theme/bootstrap/overrides/navbar';
+@import 'theme/bootstrap/overrides/card';
+@import 'theme/bootstrap/overrides/breadcrumb';
+@import '~bootstrap/scss/pagination';
+@import 'theme/bootstrap/overrides/tags';
+@import '~bootstrap/scss/jumbotron';
+@import '~bootstrap/scss/alert';
+@import 'theme/bootstrap/overrides/progress';
+@import '~bootstrap/scss/media';
+@import '~bootstrap/scss/list-group';
+@import '~bootstrap/scss/responsive-embed';
+@import '~bootstrap/scss/close';
 
 // Components w/ JavaScript
-@import "~bootstrap/scss/modal";
-@import "~bootstrap/scss/tooltip";
-@import "~bootstrap/scss/popover";
-@import "~bootstrap/scss/carousel";
+@import '~bootstrap/scss/modal';
+@import '~bootstrap/scss/tooltip';
+@import '~bootstrap/scss/popover';
+@import '~bootstrap/scss/carousel';
 
 // Utility classes
-@import "~bootstrap/scss/utilities";
+@import '~bootstrap/scss/utilities';
 
 // Core files
-@import "theme/core/spinner";
-@import "theme/core/grid";
-@import "theme/core/layout";
-@import "theme/core/navigation";
-@import "theme/core/aside";
-@import "theme/core/loading";
-@import "theme/core/widgets";
-@import "theme/core/footer";
-@import "theme/core/buttons";
-@import "theme/core/others";
-@import "theme/core/breadcrumb-menu";
-@import "theme/core/avatars";
-@import "theme/core/callout";
-@import "theme/core/switches";
-@import "theme/core/charts";
-@import "theme/core/utilities-border";
-@import "theme/core/mobile";
+@import 'theme/spinner/spinner';
+@import 'theme/components/grid';
+@import 'theme/sidebar/layout';
+@import 'theme/components/navigation';
+@import 'theme/sidebar/aside';
+@import 'theme/components/loading';
+@import 'theme/components/widgets';
+@import 'theme/footer/footer';
+@import 'theme/components/buttons';
+@import 'theme/components/others';
+@import 'theme/page/breadcrumb-menu';
+@import 'theme/avatar/avatars';
+@import 'theme/components/callout';
+@import 'theme/components/switches';
+@import 'theme/components/charts';
+@import 'theme/components/utilities-border';
+@import 'theme/components/mobile';
 
 // Temporary fixes
-@import "theme/core/temp";
+@import 'theme/components/temp';

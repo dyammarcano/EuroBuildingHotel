@@ -1,29 +1,29 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit }    from '@angular/core';
+import { Router }               from '@angular/router';
 
 @Component({
     templateUrl: 'dashboard.component.html'
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
 
-    constructor() { }
+    constructor( ) { }
 
-    public brandPrimary: string =  '#20a8d8';
-    public brandSuccess: string =  '#4dbd74';
-    public brandInfo: string =     '#63c2de';
-    public brandWarning: string =  '#f8cb00';
-    public brandDanger: string =   '#f86c6b';
+    public brandPrimary:string =  '#20a8d8';
+    public brandSuccess:string =  '#4dbd74';
+    public brandInfo:string =     '#63c2de';
+    public brandWarning:string =  '#f8cb00';
+    public brandDanger:string =   '#f86c6b';
 
     // dropdown buttons
     public status: { isopen: boolean } = { isopen: false };
-    public toggleDropdown($event: MouseEvent): void {
+    public toggleDropdown($event:MouseEvent):void {
         $event.preventDefault();
         $event.stopPropagation();
         this.status.isopen = !this.status.isopen;
     }
 
     //convert Hex to RGBA
-    public convertHex(hex: string, opacity: number){
+    public convertHex(hex:string,opacity:number){
         hex = hex.replace('#','');
         let r = parseInt(hex.substring(0,2), 16);
         let g = parseInt(hex.substring(2,4), 16);
@@ -34,23 +34,23 @@ export class DashboardComponent {
     }
 
     // events
-    public chartClicked(e: any): void {
+    public chartClicked(e:any):void {
         console.log(e);
     }
 
-    public chartHovered(e: any): void {
+    public chartHovered(e:any):void {
         console.log(e);
     }
 
     // lineChart1
-    public lineChart1Data: Array<any> = [
+    public lineChart1Data:Array<any> = [
         {
-            data: [ 65, 59, 84, 84, 51, 55, 40 ],
+            data: [65, 59, 84, 84, 51, 55, 40],
             label: 'Series A'
         }
     ];
-    public lineChart1Labels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-    public lineChart1Options: any = {
+    public lineChart1Labels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+    public lineChart1Options:any = {
         maintainAspectRatio: false,
         scales: {
             xAxes: [{
@@ -87,7 +87,7 @@ export class DashboardComponent {
             display: false
         }
     };
-    public lineChart1Colours: Array<any> = [
+    public lineChart1Colours:Array<any> = [
         { // grey
             backgroundColor: this.brandPrimary,
             borderColor: 'rgba(255,255,255,.55)'
@@ -97,14 +97,14 @@ export class DashboardComponent {
     public lineChart1Type:string = 'line';
 
     // lineChart2
-    public lineChart2Data: Array<any> = [
+    public lineChart2Data:Array<any> = [
         {
             data: [1, 18, 9, 17, 34, 22, 11],
             label: 'Series A'
         }
     ];
-    public lineChart2Labels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-    public lineChart2Options: any = {
+    public lineChart2Labels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+    public lineChart2Options:any = {
         maintainAspectRatio: false,
         scales: {
             xAxes: [{
@@ -142,25 +142,25 @@ export class DashboardComponent {
             display: false
         }
     };
-    public lineChart2Colours: Array<any> = [
+    public lineChart2Colours:Array<any> = [
         { // grey
             backgroundColor: this.brandInfo,
             borderColor: 'rgba(255,255,255,.55)'
         }
     ];
-    public lineChart2Legend: boolean = false;
-    public lineChart2Type: string = 'line';
+    public lineChart2Legend:boolean = false;
+    public lineChart2Type:string = 'line';
 
 
     // lineChart3
-    public lineChart3Data: Array<any> = [
+    public lineChart3Data:Array<any> = [
         {
             data: [78, 81, 80, 45, 34, 12, 40],
             label: 'Series A'
         }
     ];
-    public lineChart3Labels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-    public lineChart3Options: any = {
+    public lineChart3Labels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+    public lineChart3Options:any = {
         maintainAspectRatio: false,
         scales: {
             xAxes: [{
@@ -184,14 +184,14 @@ export class DashboardComponent {
             display: false
         }
     };
-    public lineChart3Colours: Array<any> = [
+    public lineChart3Colours:Array<any> = [
         {
             backgroundColor: 'rgba(255,255,255,.2)',
             borderColor: 'rgba(255,255,255,.55)',
         }
     ];
-    public lineChart3Legend: boolean = false;
-    public lineChart3Type: string = 'line';
+    public lineChart3Legend:boolean = false;
+    public lineChart3Type:string = 'line';
 
 
     // barChart1
@@ -201,8 +201,8 @@ export class DashboardComponent {
             label: 'Series A'
         }
     ];
-    public barChart1Labels: Array<any> = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
-    public barChart1Options: any = {
+    public barChart1Labels:Array<any> = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'];
+    public barChart1Options:any = {
         maintainAspectRatio: false,
         scales: {
             xAxes: [{

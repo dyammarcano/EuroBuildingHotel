@@ -1,4 +1,8 @@
-.center {
+@import '~spinthatshit/src/loaders';
+
+$loader-color: #2A2C36;
+
+.absolute-center {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -6,25 +10,16 @@
 }
 
 .spinner {
-  width: 56px;
-  height: 56px;
-  border: 8px solid transparent;
-  border-top-color: #2A2C36;
-  border-bottom-color: #2A2C36;
-  border-radius: 50%;
-  position: relative;
-  animation: loader-rotate 1s linear infinite;
-
-  top: 50%;
-  margin: -28px / 2 auto 0;
-}
-
-@keyframes loader-rotate {
-  0% {
-    transform: rotate(0);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+  //@include loader01($align: middle);
+  @include loader02($align: middle);
+  //@include loader03($align: middle);
+  //@include loader04($size: 56px, $border-size: 2px, $align: middle);
+  //@include loader05($border-size: 4px, $align: middle);
+  //@include loader06($size: 56px, $border-size: 4px, $align: middle);
+  //@include loader07($size: 16px, $align: middle);
+  //@include loader08($size: 20px, $gap: 6px, $align: middle);
+  //@include loader09($size: 10px, $height: 48px, $gap: 8px, $duration: 1s, $align: middle);
+  //@include loader10($size: 28px, $gap: 12px, $duration: 0.9s, $align: middle);
+  //@include loader11($size: 20px, $gap: 10px, $duration: 0.8s, $align: middle);
+  //@include loader12($size: 20px, $gap: 30px, $duration: 1s, $align: middle);
 }

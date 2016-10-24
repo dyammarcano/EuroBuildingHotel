@@ -1,10 +1,8 @@
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import * as io from 'socket.io-client';
 import * as _ from 'lodash';
 
 
-@Injectable()
 export class SocketService {
 
   private url: string = 'http://node-5622245.rhcloud.com:8000';
@@ -38,13 +36,13 @@ export class SocketService {
     this.socket = io(`http://${localStorage.getItem('ip')}:5728/device`);
 
     this
-      .get('connect')
+      .load('connect')
       .subscribe(() => {
         console.log(`local device connected! id: ${this.socket.id}`)
       });
 
     this
-      .get('disconnect')
+      .load('disconnect')
       .subscribe(() => {
         console.log('local device disconnected!')
       });
@@ -78,7 +76,7 @@ export class SocketService {
   /*private myFunction = () => {
 
     if (_.isNull(localStorage.getItem('device'))) {
-      var device = prompt("Identificador del dispositivo:", ""); //5AD9420A
+      var device = prompt("Identificador erase dispositivo:", ""); //5AD9420A
       localStorage.setItem('device', device);
     }
 

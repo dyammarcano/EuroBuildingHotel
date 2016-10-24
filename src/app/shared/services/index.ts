@@ -4,6 +4,7 @@ export * from './spinner.service';
 export * from './storage.service';
 export * from './time.service';
 export * from './image-loader.service';
+export * from './alerts.service';
 
 
 import {
@@ -13,6 +14,7 @@ import {
   SpinnerService,
   ImageLoaderService,
   CryptoService,
+  AlertsService,
 } from '../services';
 
 export const SERVICES = [
@@ -22,4 +24,5 @@ export const SERVICES = [
   SpinnerService,
   ImageLoaderService,
   CryptoService,
+  AlertsService,
 ];

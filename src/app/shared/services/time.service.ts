@@ -1,9 +1,7 @@
-import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 import { Observable } from 'rxjs';
 
 
-@Injectable()
 export class TimeService {
 
   constructor() { }

@@ -5,6 +5,7 @@
   "angular-cli": {},
   "scripts": {
     "start": "ng serve",
+    "build": "ng build --prod",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
@@ -21,8 +22,10 @@
     "@angular/platform-browser-dynamic": "2.1.0",
     "@angular/router": "3.1.0",
     "@angular/upgrade": "2.1.0",
+    "@google/maps": "0.3.0",
     "angular2-bootstrap-confirm": "1.0.2",
     "angular2-calendar": "0.3.5",
+    "angular2-google-maps": "^0.15.0",
     "bootstrap": "4.0.0-alpha.5",
     "chart.js": "2.3.0",
     "chartist": "0.9.8",
@@ -49,6 +52,7 @@
     "simple-line-icons": "2.4.1",
     "socket.io-client": "1.5.0",
     "spinthatshit": "1.0.3",
+    "toastr-ng2": "^1.4.3",
     "ts-helpers": "1.1.2",
     "zone.js": "0.6.25"
   },

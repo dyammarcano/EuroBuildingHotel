@@ -1,18 +1,25 @@
-import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 
-@Injectable()
-export class StorageService {
+class Storage {
 
-  public get = (key: string): any => {
-    localStorage.getItem(key);
-  }
+  public load = (key: string): any => {
+    return localStorage.getItem(key);
+  };
 
-  public put = (key: string, value: string): void => {
+  public save = (key: string, value: string): void => {
     localStorage.setItem(key, value);
-  }
+  };
 
-  public del = (key: string): void => {
+  public erase = (key: string): any => {
     localStorage.removeItem(key);
+  };
+
+  public watch = (key: string): Observable<any> => {
+    return Observable.create((data) => {
+
+    });
   }
 }
+
+export { Storage as StorageService };

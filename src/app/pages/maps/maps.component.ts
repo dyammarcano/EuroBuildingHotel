@@ -1,6 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
 import * as GoogleMapsLoader from 'google-maps';
-
+import * as googleMapsClient from '@google/maps';
 
 @Component({
   selector: 'google-maps',

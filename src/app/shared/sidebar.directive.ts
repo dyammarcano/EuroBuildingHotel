@@ -31,16 +31,16 @@ export class SidebarToggleDirective {
     toggleOpen($event: any) {
         $event.preventDefault();
 
-        let bodyClass = this._storage.get('body-class');
+        let bodyClass = this._storage.load('body-class');
 
         if (this.hasClass(document.querySelector('body'), 'sidebar-off-canvas')) {
             this.toggleClass(document.querySelector('body'), 'sidebar-opened');
             this.toggleClass(document.querySelector('html'), 'sidebar-opened');
         } else if (this.hasClass(document.querySelector('body'), 'sidebar-nav') || bodyClass == 'sidebar-nav') {
             this.toggleClass(document.querySelector('body'), 'sidebar-nav');
-            this._storage.put('body-class', 'sidebar-nav');
+            this._storage.save('body-class', 'sidebar-nav');
             if (bodyClass == 'sidebar-nav') {
-                this._storage.del('body-class');
+                this._storage.erase('body-class');
             }
         }
     }

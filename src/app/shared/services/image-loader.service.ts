@@ -1,7 +1,3 @@
-import { Injectable } from '@angular/core';
-
-
-@Injectable()
 export class ImageLoaderService {
 
   public load(src): Promise<any> {

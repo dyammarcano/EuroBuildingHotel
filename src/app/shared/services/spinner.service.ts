@@ -1,8 +1,4 @@
-import { Injectable } from '@angular/core';
-
-
-@Injectable()
-export class SpinnerService {
+class Spinner {
 
   private _selector: string = 'spinner';
   private _element: HTMLElement;
@@ -21,3 +17,5 @@ export class SpinnerService {
     }, delay);
   }
 }
+
+export { Spinner as SpinnerService };
